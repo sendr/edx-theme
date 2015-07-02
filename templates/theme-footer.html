@@ -1,5 +1,6 @@
 ## mako
 <%! from django.core.urlresolvers import reverse %>
+<%! from django.utils.translation import ugettext as _ %>
 <%namespace name='static' file='/static_content.html'/>
 <%! from datetime import datetime %>
 <%! from pytz import UTC %>
@@ -9,20 +10,24 @@
     <div class="colophon">
       <nav class="nav-colophon">
         <ol>
-          <li><a href="${reverse('tos')}">Terms of Service</a></li>
-          <li><a href="${reverse('tos')}#privacy">Privacy Policy</a></li>
-          <li><a href="${reverse('tos')}#honor">Honor Code</a></li>
-          <li><a href="${reverse('tos')}#copyright">Copyright</a></li>
+##          <li><a href="${reverse('tos')}">Terms of Service</a></li>
+##          <li><a href="${reverse('tos')}#privacy">Privacy Policy</a></li>
+##          <li><a href="${reverse('tos')}#honor">Honor Code</a></li>
+##          <li><a href="${reverse('tos')}#copyright">Copyright</a></li>
           ##<li><a href="${reverse('about_edx')}#careers">Careers</a></li>
           ##<li><a href="${reverse('about_edx')}#contact">Contact</a></li>
           ##<li><a href="${marketing_link('JOBS')}#careers">Careers</a></li>
-          <li><a href="${marketing_link('CONTACT')}#contact">Contact</a></li>
+					<li><a href="${marketing_link('ABOUT')}"><span class="copy">${_("About")}</span></a></li>
+					<li><a href="${marketing_link('FAQ')}"><span class="copy">${_("FAQ")}</span></a></li>
+					<li><a href="${marketing_link('CONTACT')}"><span class="copy">${_("Contact")}</span></a></li>
+##          <li><a href="${marketing_link('CONTACT')}#contact">Contact</a></li>
           ##<li><a href="${marketing_link('FAQ')}">Help</a></li>
         </ol>
       </nav>
     </div>
-    <div class="references">
-      <span>Built on <a href="http://code.edx.org">OpenEdX</a>.</span>
-    </div>
+##      #       <img alt="edX logo" src="${static.url('themes/default/images/Logo_footer.png')}">
+      <div class="footer-about-openedx">
+        <span><a href="http://code.edx.org"><img alt="edX logo" src="${static.url('themes/default/images/Logo_footer.png')}"></a></span>
+				</div>
   </footer>
 </div>
